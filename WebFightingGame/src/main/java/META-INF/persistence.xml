@@ -3,12 +3,13 @@
 	<persistence-unit name="WebFightingGame" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.ListItem</class>
+		<class>model.Developer</class>
+		<class>model.ListDetails</class>
 		<properties>
 			<property name="javax.persistence.jdbc.user" value="admin"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.c2wrvmcw7bxw.us-east-1.rds.amazonaws.com/fighting_game"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.password" value="DatabaseChung"/>
-			<property name="eclipselink.ddl-generation" value="create-tables"/>
 		</properties>
 	</persistence-unit>
 </persistence>
