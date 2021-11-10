@@ -4,11 +4,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type = "text/javascript">
+	function validate() {
+		var invalid = /^[\w ]+$/;
+		
+		if (document.editList.listName.value == "" || !invalid.test(document.editList.listName.value)) {
+			alert("Invalid character or list name is empty!");
+			document.editList.listName.focus();
+			return false;
+		}
+		var invalid = /^[\w ]+$/;
+		
+		if (document.editList.developerName.value == "" || !invalid.test(document.editList.developerName.value)) {
+			alert("Invalid character or developer name is empty!");
+			document.editList.developerName.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
 <meta charset="ISO-8859-1">
 <title>Edit An Existing List</title>
 </head>
 <body>
-<form action = "editListDetailsServlet" method="post">
+<form name = "editList" onsubmit = "return(validate());" action = "editListDetailsServlet" method="post">
 <input type ="hidden" name = "id" value= "${listToEdit.id}">
 List Name: <input type ="text" name = "listName" value= "${listToEdit.listName}"><br />
 Developer Name: <input type = "text" name = "developerName" value="${listToEdit.developer.developerName}"><br />

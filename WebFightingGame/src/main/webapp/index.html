@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type = "text/javascript">
+	function validate() {
+		var invalid = /^[\w ]+$/;
+		
+		if (document.newGame.game.value == "" || !invalid.test(document.newGame.game.value)) {
+			alert("Invalid character or game name is empty!");
+			document.newGame.game.focus();
+			return false;
+		}
+		var invalid = /^[\w ]+$/;
+		
+		if (document.newGame.year.value == "" || isNaN(document.newGame.year.value)) {
+			alert("Year not a number or year field is empty!");
+			document.newGame.year.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 </head>
 <body>
-<form action = "addItemServlet" method="post">
+<form name = "newGame" onsubmit = "return(validate());" action = "addItemServlet" method="post">
 Game: <input type="text" name = "game">
 Year: <input type="text" name = "year">
 <input type = "submit" value="Add Item">

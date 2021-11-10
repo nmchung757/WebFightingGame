@@ -4,13 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type = "text/javascript">
+	function validate() {
+		var invalid = /^[\w ]+$/;
+		
+		if (document.newList.listName.value == "" || !invalid.test(document.newList.listName.value)) {
+			alert("Invalid character or list name is empty!");
+			document.newList.listName.focus();
+			return false;
+		}
+		var invalid = /^[\w ]+$/;
+		
+		if (document.newList.developerName.value == "" || !invalid.test(document.newList.developerName.value)) {
+			alert("Invalid character or developer name is empty!");
+			document.newList.developerName.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
 <meta charset="ISO-8859-1">
 <title>Create a new list</title>
 </head>
 <body>
-<form action = "createNewListServlet" method="post">
+<form name = "newList" onsubmit = "return(validate());" action = "createNewListServlet" method="post">
 List Name: <input type = "text" name = "listName"><br />
-Developer Name: <input type = "text" name = "shopperName"><br />
+Developer Name: <input type = "text" name = "developerName"><br />
 
 Available Items:<br />
 <select name="allItemsToAdd" multiple size="6">
